@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hinh chu nhat</title>
+</head>
+<body>
+  <script>
+    document.write("<br><canvas id='canvasId' width=300px height=150px style=\"border:1px solid #008000;\"></canvas>")
+    document.write('<br>')
+    let hinhChuNhat = function(dai, rong){
+      this.chieuDai = dai
+      this.chieuRong = rong
+
+      this.setChieuDai = function (dai) {
+        this.chieuDai = dai
+      }
+      this.setChieuRong = function (rong) {
+        this.chieuRong = rong
+      }
+      this.getChieuDai = function (){
+        return this.chieuDai
+      }
+      this.getChieuRong = function (){
+        return this.chieuRong
+      }
+      this.getDienTich = function (){
+        return this.chieuRong * this.chieuDai
+      }
+      this.getChuVi = function (){
+        return (this.chieuDai + this.chieuRong) * 2
+      }
+    }
+    let context = document.getElementById("canvasId")
+    let ctx = context.getContext('2d')
+    let hinh_chu_nhat = new hinhChuNhat()
+    let set_chieu_dai = hinh_chu_nhat.setChieuDai(55)
+    let set_chieu_rong = hinh_chu_nhat.setChieuRong(35)
+    let chieu_dai = hinh_chu_nhat.getChieuDai()
+    let chieu_rong = hinh_chu_nhat.getChieuRong()
+    let chu_vi = hinh_chu_nhat.getChuVi()
+    let dien_tich = hinh_chu_nhat.getDienTich()
+
+    let grd = ctx.createLinearGradient(10,10,200,0)
+    grd.addColorStop(0, "red")
+    grd.addColorStop(1, "red")
+
+    ctx.fillStyle = grd
+    ctx.fillRect(75,35,155,85)
+
+    document.write("Chieu dai: " +chieu_dai+ "<br>Chieu rong: " +chieu_rong+ "<br>" )
+    document.write("Chu vi hinh chu nhat: "+chu_vi+ "<br> Dien tich hinh chu nhat:" +dien_tich+ "<br>" )
+
+  </script>
+</body>
+</html>
