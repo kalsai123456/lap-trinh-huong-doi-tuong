@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>den pin</title>
+</head>
+<body>
+<script>
+  class Battery {
+    constructor(energy) {
+      this.energy = energy;
+    }
+    getEnergy() {
+      return this.energy;
+    }
+    setEnergy(energy) {
+      this.energy = energy;
+    }
+    decreaseEnergy(){
+      if (this.energy>0){
+        this.energy--;
+      }
+    }
+  }
+  class FlashLamp {
+    constructor(status,battery) {
+      this.status = status;
+      this.battery = battery;
+    }
+    getStatus() {
+      return this.status;
+    }
+    setStatus(status) {
+      this.status = status;
+    }
+    setBattery(battery){
+      this.battery = battery;
+    }
+    getBatteryInFo(){
+      return this.battery.getEnergy();
+    }
+    light(){
+      if (this.status){
+        if (battery.getEnergy()>0&&battery.getEnergy()<=100){
+          battery.decreaseEnergy();
+        }else {
+          this.turnOff();
+        }
+      }
+    }
+    turnOn(){
+      this.status = true;
+    }
+    turnOff(){
+      this.status = false;
+    }
+  }
+  let battery = new Battery(8);
+  let flashLamp = new FlashLamp(false,battery);
+  console.log(battery.getEnergy())
+  console.log(flashLamp.getBatteryInFo())
+  flashLamp.turnOn();
+  flashLamp.light();
+  flashLamp.light();
+  flashLamp.light();
+  flashLamp.light();
+  flashLamp.light();
+  console.log(battery.getEnergy())
+  console.log(flashLamp.getBatteryInFo())
+  console.log(flashLamp.getStatus())
+  flashLamp.turnOff();
+  flashLamp.light();
+  flashLamp.light();
+  flashLamp.light();
+  flashLamp.turnOn();
+  flashLamp.light();
+  flashLamp.light();
+  flashLamp.light();
+  flashLamp.light();
+  console.log(battery.getEnergy())
+  console.log(flashLamp.getBatteryInFo())
+  console.log(flashLamp.getStatus())
+
+</script>
+
+</body>
+</html>
