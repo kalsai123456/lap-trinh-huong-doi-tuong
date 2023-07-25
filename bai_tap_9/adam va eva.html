@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>adam va eva</title>
+</head>
+<body>
+<script>
+  class Apple{
+    weight;
+    constructor(weight) {
+      this.weight = weight;
+    }
+    getWeight(){
+      return this.weight;
+    }
+    setWeight(weight){
+      this.weight = weight;
+    }
+    isEmpty(){
+      if (this.weight <= 0){
+        return true
+      } else {
+        return false
+      }
+    }
+    decreaseApple(){
+      if (this.isEmpty()){
+        alert("Da het tao roi")
+      } else {
+        this.weight--
+      }
+    }
+  }
+  class Human {
+    name;
+    gender;
+    weight;
+    constructor(name,gender,weight) {
+      this.name = name;
+      this.gender = gender;
+      this.weight = weight;
+    }
+    getName(){
+      return this.name
+    }
+    setName(name){
+      this.name = name
+    }
+    getWeight(){
+      return this.weight
+    }
+    isMale(){
+      if (this.gender === 1){
+        return true
+      } else {
+        return false
+      }
+    }
+    getGender(){
+      if (this.isMale()){
+        return "Male"
+      } else {
+        return "Female"
+      }
+    }
+    setWeight(weight){
+      this.weight = weight;
+    }
+    say(String){
+      console.log(String)
+    }
+    checkApple(Apple){
+      return Apple.isEmpty()
+    }
+    eat (Apple){
+      if (Apple.getWeight() >0){
+        Apple.decreaseApple()
+        this.weight++
+      } else {
+        alert("da het tao")
+      }
+    }
+    getInfo(human){
+      alert(human.name+ " " +human.weight+ " "+ human.getGender())
+    }
+  }
+
+
+  let adam = new Human('adam',1,65)
+  console.log(adam)
+  let eva = new Human('eva',2,50)
+  console.log(eva)
+  let apple_1 = new Apple(10)
+  console.log(apple_1)
+  adam.say("I am Adam" );
+  eva.say("I am Eva" );
+  if (apple_1.isEmpty() !== 0){
+    document.write("Adam an tao" + '<br>')
+    adam.eat(apple_1)
+    document.write("Qua tao con: "+ apple_1.getWeight() + '<br>')
+    document.write("Can nang cua Adam la: "+ adam.getWeight()+'<br>')
+    document.write("Eva an tao" + '<br>')
+    eva.eat(apple_1)
+    document.write("Qua tao con: "+ apple_1.getWeight()+ '<br>')
+    document.write("Can nang cua Eva la: "+ eva.getWeight()+'<br>')
+    }
+
+</script>
+</body>
+</html>
